@@ -32,12 +32,17 @@ public class NewWorkoutActivity extends Activity implements OnItemSelectedListen
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		// Apply the adapter to the spinner
 		spinner.setAdapter(adapter);
+		Bundle extras = getIntent().getExtras();
+		if (extras != null) {
+		    w = (Workout) extras.get("workout");
+		}
 		if(!w.getType().equals("")) {
 			setSpinnerSelection(w.getType(), spinner);
 		}
 		EditText et = (EditText) findViewById(R.id.editText1);
-		String time = Integer.toString(w.getTime());
-		et.setText(time);
+		if(w.getTime()!=0) {
+			et.setText(Integer.toString(w.getTime()));
+		}
 
 		PrevWorkout pw = PrevWorkout.getInstance();
 		List<Workout> all = pw.getPrevious();

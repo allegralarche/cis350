@@ -61,6 +61,9 @@ public class HeartRateTwo extends Activity {
  		}
  		
 		et = (EditText) findViewById(R.id.hr_input);
+		if(w.getHeartrate()!=0) {
+			et.setText(Integer.toString(w.getHeartrate()));
+		}
 		
 		TextView txt1 = (TextView) findViewById(R.id.textView1);
 		Button b = (Button) findViewById(R.id.timer);

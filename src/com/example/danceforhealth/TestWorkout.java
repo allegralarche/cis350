@@ -14,7 +14,7 @@ public class TestWorkout extends TestCase {
 		Workout w = new Workout("Allegra", 4, 6, 4, 27);
 		assertEquals(w.getType(), "Allegra");
 		assertEquals(w.getStrain(), 4);
-		assertEquals(w.getHR(), 6);
+		assertEquals(w.getHeartrate(), 6);
 		assertEquals(w.getSteps(), 4);
 		assertEquals(w.getWeight(), 27);
 	}

@@ -17,9 +17,10 @@
 
         <TextView
             android:id="@+id/custom_font"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="82dp"
             android:layout_marginBottom="15dp"
+            android:layout_weight="0.20"
             android:gravity="center"
             android:text="Welcome to the Dance for Health App!"
             android:textSize="40sp" />

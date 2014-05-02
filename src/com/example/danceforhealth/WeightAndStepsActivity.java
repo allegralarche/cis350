@@ -35,6 +35,14 @@ public class WeightAndStepsActivity extends Activity{
 		txt2.setTypeface(font);
 		etxt2.setTypeface(font);
 		b.setTypeface(font);
+		// set the starting text if the workout has already been instantiated
+		if(w.getSteps()!= 0) {
+			etxt1.setText(Integer.toString(w.getSteps()));
+		}
+		if(w.getWeight()!=0) {
+			etxt2.setText(Integer.toString(w.getWeight()));
+		}
+		
 	}
 	
 	@Override

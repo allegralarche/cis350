@@ -21,8 +21,8 @@ public class WorkoutSummary extends Activity{
 		Bundle b = this.getIntent().getExtras();
 		if(b!=null)
 
-		    workout = (Workout) b.get("workout");
-		workout = b.getParcelable("workout");
+		workout = (Workout) b.get("workout");
+		//workout = b.getParcelable("workout");
 
 		Typeface font = Typeface.createFromAsset(getAssets(), "Komika_display.ttf");
 		TextView txt = (TextView) findViewById(R.id.Header);
@@ -42,7 +42,7 @@ public class WorkoutSummary extends Activity{
 		weight.setText("Your weight was " + workout.getWeight());
 
 		TextView hr = (TextView)findViewById(R.id.workoutHR);
-		hr.setText("And your heartrate was " + workout.getHR());
+		hr.setText("And your heartrate was " + workout.getHeartrate());
 
 	}
 
@@ -59,6 +59,7 @@ public class WorkoutSummary extends Activity{
 		// create an Intent using the current Activity 
 		// and the Class to be created
 		Intent i = new Intent(this, NewWorkoutActivity.class);
+		i.putExtra("workout", workout);
 
 		// pass the Intent to the Activity, 
 		// using the specified request code

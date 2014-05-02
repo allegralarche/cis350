@@ -10,6 +10,7 @@
     tools:context=".HeartRateTwo" >
 
     <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
@@ -70,15 +71,16 @@
             android:layout_height="wrap_content"
             android:text="\nYour heart rate is: 0\n"
             android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/custom_button"
-            android:onClick="onNextButtonClick"
-            android:text="View Workout Summary" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/custom_button"
+        android:onClick="onNextButtonClick"
+        android:text="View Workout Summary" />
 
 </RelativeLayout>

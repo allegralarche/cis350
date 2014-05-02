@@ -72,10 +72,6 @@ public class Workout implements Parcelable {
 		return strain;
 	}
 
-	public int getHR() {
-		return heartrate;
-	}
-
 	public int getSteps() {
 		return steps;
 	}
@@ -153,7 +149,7 @@ public class Workout implements Parcelable {
 
 		parcel.writeString(getType());
 		parcel.writeInt(getStrain());
-		parcel.writeInt(getHR());
+		parcel.writeInt(getHeartrate());
 		parcel.writeInt(getSteps());
 		parcel.writeInt(getWeight());
 
