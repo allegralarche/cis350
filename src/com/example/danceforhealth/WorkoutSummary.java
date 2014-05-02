@@ -34,6 +34,9 @@ public class WorkoutSummary extends Activity{
 
 		TextView type = (TextView)findViewById(R.id.workoutType);
 		type.setText("Your workout was " + workout.getType());
+		
+		TextView time = (TextView) findViewById(R.id.workoutTime);
+		time.setText("You worked out for " + workout.getTime() + " minutes");
 
 		TextView steps = (TextView)findViewById(R.id.workoutSteps);
 		steps.setText("You took " + workout.getSteps() + " steps!");

@@ -28,6 +28,13 @@
             android:text="Your workout was " />
 
         <TextView
+            android:id="@+id/workoutTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You worked out for"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
             android:id="@+id/workoutRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
