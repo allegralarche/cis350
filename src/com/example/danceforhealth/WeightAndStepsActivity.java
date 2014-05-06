@@ -98,7 +98,7 @@ public class WeightAndStepsActivity extends Activity{
 
 		}
 		else {
-			w.setWeight(0);
+			w.setWeight(130);
 		}
 		// create an Intent using the current Activity 
 		// and the Class to be created

@@ -31,12 +31,27 @@ public class WorkoutSummary extends Activity{
 		txt.setTypeface(font);
 		b1.setTypeface(font);
 		b2.setTypeface(font);
+		
+		String feel ;
+		
+		if (workout.getStrain() < 3) {
+			feel = "GREAT";
+		} else if (workout.getStrain() < 5) {
+			feel = "GOOD";
+		} else {
+			feel = "OKAY";
+		}
 
 		TextView type = (TextView)findViewById(R.id.workoutType);
 		type.setText("Your workout was " + workout.getType());
 		
+
 		TextView time = (TextView) findViewById(R.id.workoutTime);
 		time.setText("You worked out for " + workout.getTime() + " minutes");
+
+		TextView strain = (TextView)findViewById(R.id.workoutRating);
+		type.setText("Overall, you felt " + feel);
+
 
 		TextView steps = (TextView)findViewById(R.id.workoutSteps);
 		steps.setText("You took " + workout.getSteps() + " steps!");
