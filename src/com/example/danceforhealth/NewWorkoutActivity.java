@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,6 +24,13 @@ public class NewWorkoutActivity extends Activity implements OnItemSelectedListen
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_workout);
+		
+		Bundle extras = getIntent().getExtras();
+ 		if (extras != null) {
+ 		    w = (Workout) extras.get("workout");
+ 		}
+		
+
 		Spinner spinner = (Spinner) findViewById(R.id.spinner1);
 		spinner.setOnItemSelectedListener(this);
 		// Create an ArrayAdapter using the string array and a default spinner layout
@@ -32,10 +40,6 @@ public class NewWorkoutActivity extends Activity implements OnItemSelectedListen
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		// Apply the adapter to the spinner
 		spinner.setAdapter(adapter);
-		Bundle extras = getIntent().getExtras();
-		if (extras != null) {
-		    w = (Workout) extras.get("workout");
-		}
 		if(!w.getType().equals("")) {
 			setSpinnerSelection(w.getType(), spinner);
 		}
@@ -44,9 +48,7 @@ public class NewWorkoutActivity extends Activity implements OnItemSelectedListen
 			et.setText(Integer.toString(w.getTime()));
 		}
 
-		PrevWorkout pw = PrevWorkout.getInstance();
-		List<Workout> all = pw.getPrevious();
-		all.add(w);
+
 		selection = "Dance";
 
 		Typeface font = Typeface.createFromAsset(getAssets(), "Komika_display.ttf");
@@ -67,8 +69,10 @@ public class NewWorkoutActivity extends Activity implements OnItemSelectedListen
 		
 		EditText et = (EditText) findViewById(R.id.editText1);
 		int time = Integer.parseInt(et.getText().toString());
+		Log.v("new workout", "time = " + time);
 		w.setType(selection);
 		w.setTime(time);
+		Log.v("duration", "= " + time);
 		// create an Intent using the current Activity 
 		// and the Class to be created
 		Intent i = new Intent(this, RatingActivity.class).putExtra("workout", w);

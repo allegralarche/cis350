@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -62,7 +63,7 @@ public class WeightAndStepsActivity extends Activity{
 		else {
 			w.setSteps(0);
 		}
-		if(!et2.getText().toString().trim().equals("")) {
+		if(!(et2.getText().toString().trim().equals(""))) {
 			weight = Integer.parseInt(et2.getText().toString());
 			w.setWeight(weight);
 
@@ -71,7 +72,7 @@ public class WeightAndStepsActivity extends Activity{
 			w.setWeight(0);
 		}
 	
-		
+		Log.v("duration", "= " + w.getTime());
 	
 		// create an Intent using the current Activity 
 		// and the Class to be created

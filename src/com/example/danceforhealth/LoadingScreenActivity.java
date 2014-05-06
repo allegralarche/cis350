@@ -3,8 +3,10 @@ package com.example.danceforhealth;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +19,12 @@ import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LoadingScreenActivity extends Activity{
+	
+	private String file = "data_workout";
+	private String data = "";
 
 	
 	@Override 
@@ -26,6 +32,35 @@ public class LoadingScreenActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		final Intent i = new Intent(this, HomeActivity.class);
 		setContentView(R.layout.loading_screen);
+		
+		try{
+			FileInputStream fin = openFileInput(file);
+			int c;
+			String temp="";
+			while( (c = fin.read()) != -1){
+				temp = temp + Character.toString((char)c);
+			}
+			data = temp;
+		//	Toast.makeText(getBaseContext(),"file read",
+			//		Toast.LENGTH_SHORT).show();
+			HomeActivity.createDatabase(data);
+			Log.v("home", "read from log file");
+			 
+			
+			//deleteFile(file);
+			// clear file
+			
+/*			FileOutputStream fOut = openFileOutput(file,MODE_PRIVATE);
+			String empty = "";
+	         fOut.write(empty.getBytes());
+	         fOut.close();*/
+			
+		}catch(Exception e){
+
+		}
+		
+		
+		
 		CountDownTimer timer = new CountDownTimer(3000, 1000) {
 
 			@Override
