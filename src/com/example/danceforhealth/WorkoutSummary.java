@@ -56,12 +56,22 @@ public class WorkoutSummary extends Activity{
 		TextView strain = (TextView)findViewById(R.id.workoutRating);
 		strain.setText("Overall, you felt " + feel);
 
-
 		TextView steps = (TextView)findViewById(R.id.workoutSteps);
-		steps.setText("You took " + workout.getSteps() + " steps!");
-
+		if(workout.getSteps()!=0) {
+			steps.setText("You took " + workout.getSteps() + " steps!");
+		}
+		else {
+			steps.setVisibility(View.GONE);
+		}
+		
 		TextView weight = (TextView)findViewById(R.id.workoutWeight);
-		weight.setText("Your weight was " + workout.getWeight());
+		if(workout.getWeight()!=0) {
+			weight.setText("Your weight was " + workout.getWeight());
+		}
+		else{
+			weight.setVisibility(View.GONE);
+		}
+		
 
 		TextView hr = (TextView)findViewById(R.id.workoutHR);
 		hr.setText("And your heartrate was " + workout.getHR());
